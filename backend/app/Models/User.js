@@ -38,6 +38,34 @@ class User extends Model {
   teams () {
     return this.belongsToMany('App/Models/Team').pivotModel('App/Models/UserTeam')
   }
+
+  teamJoin () {
+    return this.hasMany('App/Models/UserTeam')
+  }
+
+  async is (expression) {
+    const team = await this.teamJoins()
+      .where('team_id', this.currentTeam)
+      .first()
+
+    return team.is(expression)
+  }
+
+  async can (expression) {
+    const team = await this.teamJoins()
+      .where('team_id', this.currentTeam)
+      .first()
+
+    return team.is(expression)
+  }
+
+  async iscope (required) {
+    const team = await this.teamJoins()
+      .where('team_id', this.currentTeam)
+      .first()
+
+    return team.is(required)
+  }
 }
 
 module.exports = User
