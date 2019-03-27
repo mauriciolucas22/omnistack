@@ -44,7 +44,7 @@ class User extends Model {
   }
 
   async is (expression) {
-    const team = await this.teamJoins()
+    const team = await this.teamJoin()
       .where('team_id', this.currentTeam)
       .first()
 
@@ -52,7 +52,7 @@ class User extends Model {
   }
 
   async can (expression) {
-    const team = await this.teamJoins()
+    const team = await this.teamJoin()
       .where('team_id', this.currentTeam)
       .first()
 
@@ -60,7 +60,7 @@ class User extends Model {
   }
 
   async iscope (required) {
-    const team = await this.teamJoins()
+    const team = await this.teamJoin()
       .where('team_id', this.currentTeam)
       .first()
 

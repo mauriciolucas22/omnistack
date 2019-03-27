@@ -59,8 +59,6 @@ class DatabaseSeeder {
       createProject.id
     ])
 
-
-
     const team = await user.teams().create({
       name: 'RocketDev',
       user_id: user.id,
