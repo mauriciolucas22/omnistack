@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
 
-const Main = () => <h1>Jesus</h1>;
+import TeamSwitcher from '../../components/TeamSwitcher';
+
+import { Container } from './style';
+
+class Main extends Component {
+  render() {
+    return (
+      <Container>
+        <TeamSwitcher />
+      </Container>
+    );
+  }
+}
 
 export default Main;
