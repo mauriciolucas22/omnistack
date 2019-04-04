@@ -19,6 +19,9 @@ export const Team = styled.button`
   border: 0;
   background: transparent;
   margin: 0 0 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   img {
     transition: all 0.2s;
@@ -29,6 +32,16 @@ export const Team = styled.button`
 
   &:hover img {
     border-radius: 30%;
+  }
+
+  &::before {
+    content: "";
+    border: 1px solid red;
+    background: red;
+    margin-right: 5px;
+    height: 10px;
+    width: 5px;
+    border-radius: 5px;
   }
 `;
 
