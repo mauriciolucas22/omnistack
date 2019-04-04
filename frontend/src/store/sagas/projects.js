@@ -9,3 +9,18 @@ export function* getProjects() {
 
   yield put(ProjectsActions.getProjectsSuccess(response.data));
 }
+
+export function* createProject({ title }) {
+  try {
+    const response = yield call(api.post, 'projects', { title });
+
+    yield put(ProjectsActions.createprojectSuccess(response.data));
+    yield put(ProjectsActions.closeProjectModal());
+  } catch (err) {
+    yield put(toastrActions.add({
+      type: 'error',
+      title: 'Erro',
+      message: 'Não foi possível criar projeto',
+    }));
+  }
+}
