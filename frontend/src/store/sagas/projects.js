@@ -15,7 +15,7 @@ export function* createProject({ title }) {
     const response = yield call(api.post, 'projects', { title });
 
     yield put(ProjectsActions.createprojectSuccess(response.data));
-    yield put(ProjectsActions.closeProjectModal());
+    yield put(ProjectsActions.openProjectModal());
   } catch (err) {
     yield put(toastrActions.add({
       type: 'error',
